@@ -24,3 +24,11 @@ NonFreshItemDiscountStrategy -up..|> DiscountStrategy
 
 
 @enduml
+
+@startuml
+
+abstract class Authenticator {
+  Auth authenticate(String id, String pw)
+}
+
+@enduml

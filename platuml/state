@@ -1,0 +1,32 @@
+@startuml
+
+class VendingMachine {
+  -State state
+  +void insertCoing(int coin)
+  +void select(int productId)
+  +void changeState(State state)
+}
+
+interface State {
+  +void insertCoing(int coin, VendingMachine vm)
+  +void select(int productId, VendingMachine vm)
+}
+
+class NoCoinState implements State {
+  +void insertCoing(int coin, VendingMachine vm)
+  +void select(int productId, VendingMachine vm)
+}
+
+class SelectableCoinState implements State {
+  +void insertCoing(int coin, VendingMachine vm)
+  +void select(int productId, VendingMachine vm)
+}
+
+class SoldoutState implements State {
+  +void insertCoing(int coin, VendingMachine vm)
+  +void select(int productId, VendingMachine vm)
+}
+
+VendingMachine -right--> State
+
+@enduml
