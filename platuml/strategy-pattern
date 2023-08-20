@@ -1,0 +1,26 @@
+@startuml
+
+class Calculator {
+  Integer calculate(
+    items: List<Item>)
+}
+
+interface DiscountStrategy {
+  int getDiscountPrice(item: Item)
+}
+
+class FirstGuestDiscountStrategy {
+  int getDiscountPrice(item: Item)
+}
+
+class NonFreshItemDiscountStrategy {
+  int getDiscountPrice(item: Item)
+}
+
+Calculator -right..> DiscountStrategy
+
+FirstGuestDiscountStrategy -up..|> DiscountStrategy
+NonFreshItemDiscountStrategy -up..|> DiscountStrategy
+
+
+@enduml
