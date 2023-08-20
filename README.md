@@ -1,6 +1,9 @@
 # 설명
 디자인패턴을 정리합니다. 
 
+참고한 책
+- 개발자가 반드시 정복해야 할 객체지향과 디자인 패턴
+
 # 전략 패턴
 ![strategy-pattern](/images/strategy-pattern.svg)
 
