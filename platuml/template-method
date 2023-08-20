@@ -1,0 +1,20 @@
+@startuml
+
+abstract class Authenticator {
+  +Auth authenticate(String id, String pw)
+  #{abstract}boolean doAuthenticate(String id, String pw)
+  #{abstract}Auth createAuth(String id)
+  -RuntimeException createException()
+}
+
+class LdapAuthencator extends Authenticator {
+  #boolean doAuthenticate(String id, String pw)
+  #Auth createAuth(String id)
+}
+
+class DbAuthencator extends Authenticator {
+  #boolean doAuthenticate(String id, String pw)
+  #Auth createAuth(String id)
+}
+
+@enduml

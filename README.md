@@ -4,7 +4,7 @@
 참고한 책
 - 개발자가 반드시 정복해야 할 객체지향과 디자인 패턴
 
-# 전략 패턴
+# 전략(Strategy) 패턴
 ![strategy-pattern](/images/strategy-pattern.svg)
 
 개념
@@ -19,5 +19,13 @@
 - 전략(Strategy): DiscountStrategy
 - 전략 콘크리트 클래스(Strategy concrete class): FirstGuestDiscountStrategy, NonFreshItemDiscountStrategy
 
+# 템플릿 메서드(Template Method) 패턴
+![template-method-pattern](/images/template-method.svg)
 
+개념
+- 실행 과정은 같은데 각 단계 중 일부의 구현이 다른 경우에 사용할 수 있다.
+
+등장 인물
+- 실행 과정을 구현한 상위 클래스
+- 실행 과정의 일부를 구현한 하위 클래스
 
