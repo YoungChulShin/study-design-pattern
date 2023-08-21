@@ -1,0 +1,22 @@
+@startuml
+
+class ListUI { }
+
+interface Image { 
+  +void draw()
+}
+
+class ProxyImage implements Image {
+  -RealImage real
+  +void draw()
+}
+
+class RealImage implements Image {
+  +void draw()
+}
+
+ListUI -right..> Image
+
+
+
+@enduml
