@@ -1,0 +1,35 @@
+@startuml
+
+class Client { 
+
+}
+
+interface FileOut {
+  +void write(byte[] data)
+}
+
+abstract class Decorator implements FileOut {
+  -Fileout delegate
+  #doDelegate(byte[] data)
+}
+
+class FileOutImpl implements FileOut {
+  +void write(byte[] data)
+}
+
+class BufferedOut extends Decorator {
+  +void write(byte[] data)
+}
+
+class EncryptionOut extends Decorator {
+  +void write(byte[] data)
+}
+
+class ZipOut extends Decorator {
+  +void write(byte[] data)
+}
+
+Client -right--> FileOut
+
+
+@enduml
