@@ -1,0 +1,27 @@
+@startuml
+
+class SearchRequestHandler { }
+
+interface SearchService {
+  +SearchResult search()
+}
+
+class DBSearchService implements SearchService {
+    +SearchResult search()
+}
+
+class SearchServiceToExternalServiceAdapter implements SearchService {
+    -ExternalServiceClient client
+    +SearchResult search()
+}
+
+class ExternalService {
+    +QueryResponse query()
+}
+
+SearchRequestHandler -right..> SearchService
+
+SearchServiceToExternalServiceAdapter --> ExternalService
+
+
+@enduml

@@ -108,3 +108,19 @@ Proxy 종류
 - 위임을 한다면 proxy 생성 시점에 real 객체를 같이 전달해야한다. 
 - 상속을 사용한다면 상위클래스에 기준이 되는 메서드가 있고, proxy 클래스에서 해당 메서드를 override해서 접근 제어 기능을 추가할 수 있다. 
 
+# 어댑터(Adapter) 패턴
+상황
+- 검색 서비스에서 기존에는 DB만을 이용하고 있다.
+- 성능이 나오지 않아서 다른 외부 서비스를 이용해야하는데, 외부 서비스는 현재 검색 서비스가 제공하는 interface 양식에 맞지 않다. 
+
+![adapter-pattern](/images/adapter.jpg)
+
+개념
+- 어댑터 패턴을 이용하면 2개 서비스 사이에 인터페이스가 맞지 않는 문제를 해결할 수 있다. 
+- 어댑터 클래스는 ExternalService의 결과를 SearchService의 인터페이스에 맞게 맞춰 주는 책임을 가진다. 
+
+상속을 이용한 구현
+- 첨부된 그림에서는 `SearchServiceToExternalServiceAdapter`가 `ExternalService` 를 직접 가지고 있는 것으로 구현되었다. 
+- 이 경우 SearchServiceToExternalServiceAdapter는 ExternalService를 상속하게 된다. 
+- 그리고 ExternalService의 필요한 기능은 `super.xxx`를 통해서 호출한다. 
+
