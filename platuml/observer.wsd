@@ -1,0 +1,28 @@
+@startuml
+
+abstract class StatusSubject {
+    +void add(StatusObserver observer)
+    +void remove(StatusObserver observer)
+    +void notifyStatus()
+}
+
+class StatusChecker extends StatusSubject {
+
+}
+
+interface StatusObserver {
+    +void onAbnormalStatus()
+}
+
+class StatusEmailSender implements StatusObserver {
+    +void onAbnormalStatus()
+}
+
+class StatusMessageSender implements StatusObserver {
+    +void onAbnormalStatus()
+}
+
+StatusSubject o-right-> StatusObserver
+
+
+@enduml
