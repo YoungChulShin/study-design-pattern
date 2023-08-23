@@ -1,0 +1,45 @@
+@@startuml
+
+class GUIViewer { }
+class XMLExporter { }
+class ExcelExporter { }
+
+interface EmpReportFacade {
+    +EmpReportData getEmpReportData()
+}
+
+GUIViewer .down.> EmpReportFacade
+XMLExporter .down.> EmpReportFacade
+ExcelExporter .down.> EmpReportFacade
+
+class EmpReportDaoFacade implements EmpReportFacade {
+    +EmpReportData getEmpReportData()
+}
+
+class EmpDao { }
+class ResumeDao { }
+class EvaludationDao { }
+
+EmpReportDaoFacade -down-> EmpDao
+EmpReportDaoFacade -down-> ResumeDao
+EmpReportDaoFacade -down-> EvaludationDao
+
+class EmpReportHTTPFacade implements EmpReportFacade {
+    +EmpReportData getEmpRepor
+}
+
+class EmpResumeDataClient { }
+class EvaluationDataClient { }
+
+EmpReportHTTPFacade -down-> EmpResumeDataClient
+EmpReportHTTPFacade -down-> EvaluationDataClient
+
+
+
+
+
+
+
+
+
+@@enduml

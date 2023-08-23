@@ -14,7 +14,7 @@
 - 새로운 알고리즘 추가될 때, 콘텍스트에는 코드 변경이 없다. 
 - 확장에는 열려있고, 변경에는 닫혀있는 코드를 만들 수 있다. 
 
-등장인물
+용어
 - 콘텍스트(Context): Calculator
 - 전략(Strategy): DiscountStrategy
 - 전략 콘크리트 클래스(Strategy concrete class): FirstGuestDiscountStrategy, NonFreshItemDiscountStrategy
@@ -43,7 +43,7 @@ VendingMachine 예시
 - 기능이 상태에 따라 다르게 동작해야 할 때 사용할 수 있는 패턴.
 - 상태를 별도 타입으로 분리하고, 상태별로 알맞은 하위 타입을 구현한다. 
 
-등장 인물
+용어
 - 콘텍스트: VendingMachine
 - 상태: State
 - 상태 콘크리트 클래스: NoCoinState, SelectableCointState, SoldoutState
@@ -144,4 +144,25 @@ Proxy 종류
 3. 통지 시점에 주제 객체의 상태에 결함이 없어야한다. 
 4. 옵저버 실행에 제한을 둔다
    - 예: 실행 시간
+
+# 파사드(Facade) 패턴
+상황
+- 특정 화면에서 UI를 표시하기 위해서 3개 서비스에 접근해서 데이터를 가져오고 있다. 
+- 동일한 데이터를 XML, Excel로 출력이 필요해져서 이를 위한 2개의 클래스(XMLExporter, ExcelExporter)가 추가되었다. 
+- 2개의 클래스는 동일하게 각각 하위 3개 서비스에 접근해서 데이터를 가져온다. 
+- 상위 3개의 클래스는 하위 3개 클래스에 접근하기 위한 코드가 중복된다. 
+
+![facade-pattern](/images/facade.jpg)
+
+개념
+- 하위 시스템을 감춰주는 상위수준의 인터페이스를 제공한다. 
+- 클라이언트 입장에서는 인터페이스만 바라보면 되기 때문에 코드 중복과 직접 의존을 줄일 수 있다. 
+
+용어
+- 클라이언트: GUIViewer, Exporter
+- 파사드: EmpReportFacade
+- 서비 시스템: 하위 시스템들
+
+장점
+- 클라이언트와 서비스 시스템 간에 직접적인 의존을 제거했다. 이를 통해 서브 시스템의 변경이 클라이언트까지 전파되지 않는다. 
 
