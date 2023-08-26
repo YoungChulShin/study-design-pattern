@@ -197,3 +197,37 @@ public abstract class EnemyFactory {
 
 여기서 팩토리 클래스를 생성하는 책임을 별도로 분리할 수 있다면, EnemyFactory는 interface로 변경될 수 있다. 
 
+# 컴포지트(composte) 패턴
+상황
+- 빌딩 장비들의 전원을 관리하는 개발을 하고 있다. 
+- 개별 장비들에 turnOn, turnOff 기능을 추가했지만, 전체적으로 한번에 관리할 수 있는 기능을 추가하고 싶어서 DeviceGroup을 추가했다. 
+- DeviceGroup은 Device를 List로 가지고 있고, turnAllOn, turnAllOff를 가진다. 
+- Device에 새로운 기능이 추가되면 DeviceGroup도 함께 메서드가 추가되어야하는 문제점이 있다. 
+
+![composite](/images/composite.jpg)
+
+개념
+- DeviceGroup을 추가하는데, 다른 장비와 같이 Device의 구현체로 생성한다. 
+
+구성
+- 컴포넌트: Device
+- 단말: Aircon, Light, Elevator
+- 컴포지트: DeviceGroup
+
+장점
+- 컴포지트 자체도 컴포넌트이기 때문에 컴포지트에 다른 컴포지트를 추가할 수 있다. 
+
+단점
+- DeviceGroup을 사용하기 위해서 직접 DeviceGroup에 접근해야한다. 
+   ```java
+   DeviceGroup group = new DeviceGroup();
+   ```
+
+## 컴포넌트에 Device를 관리하는 기능 추가
+![composite2](/images/composite2.jpg) 
+
+설명
+- Device가 Device를 관리하는 addDevice, removeDevice를 가진다. 
+   - 기본적으로 호출이 되면 안되기 때문에 addDevice는 예외, removeDevice는 아무 동작을 하지 않는다. 
+- Device에 Device를 추가할 수 있는지를 체크하기 위해서 canContain 함수를 추가한다. 
+- 컴포지트는 addDevice, removeDevice, canContain 기능을 오버라이드해서 Device를 관리하는 기능을 구현한다. 

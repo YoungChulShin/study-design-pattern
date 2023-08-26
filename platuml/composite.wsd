@@ -1,0 +1,33 @@
+@startuml
+
+interface Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class Aircon implements Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class Light implements Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class Elevator implements Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class DeviceGroup implements Device {
+    +void turnOn()
+    +void turnOff()
+    +void addDevice(Device d)
+    +void removeDevice(Device d)
+}
+
+DeviceGroup o--> Device
+
+
+@enduml

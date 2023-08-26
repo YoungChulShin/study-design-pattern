@@ -1,0 +1,40 @@
+@startuml
+
+abstract class Device {
+    +{abstract} void turnOn()
+    +{abstract} void turnOff()
+    +void addDevice(Device d)
+    +void removeDevice(Device d)
+    +boolean canContain(Device d)
+}
+note left: - addDevice는 에러발생\n- removeDevice는 아무것도하지 않는다\n- canContain은 기본값 false
+
+class Aircon extends Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class Light extends Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class Elevator extends Device {
+    +void turnOn()
+    +void turnOff()
+}
+
+class DeviceGroup extends Device {
+    +void turnOn()
+    +void turnOff()
+    +void addDevice(Device d)
+    +void removeDevice(Device d)
+    +boolean canContain(Device d)
+}
+note bottom of DeviceGroup 
+- addDevice와 removeDevice를 오버라이드
+- canContain은 true
+end note
+
+
+@enduml
