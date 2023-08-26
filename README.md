@@ -166,3 +166,34 @@ Proxy 종류
 장점
 - 클라이언트와 서비스 시스템 간에 직접적인 의존을 제거했다. 이를 통해 서브 시스템의 변경이 클라이언트까지 전파되지 않는다. 
 
+# 추상 팩토리(Abstract Factory) 패턴
+상황
+- 클라이언트가 각 조건에 따라서 사용하는 구현체 클래스를 생성하고 있다. 
+- 조건이 복잡해지거나 구현체 클래스에 변경이 생기면 클라이언트 코드에 변경이 발생한다. 
+- 클라이언트 수정 없이 변경에 대응하고 싶다. 
+
+![abstract-factory](/images/abstract-factory.jpg)
+
+개념
+- Client 클래스로부터 객체 생성 책임을 분리함으로써, 변경이 발생했을 때 Factory의 변경으로 Client 수정 없이 대응할 수 있다. 
+
+용어
+- 팩토리: EnemyFactory
+- 제품: Boss, SmallFlightg, Obstacle
+
+## 팩토리 클래스를 interface로 변경
+팩토리 클래스는 팩토리 클래스를 생성하는 책임(=getFactory())을 가지고 있기 때문에 추상 클래스로 구현된다. 
+```java
+public abstract class EnemyFactory {
+   public static EnemyFactory getFactory(int level) {
+      if (level == 1) {
+         retun EasyStateEnemyFactory();
+      } else {
+         return HardEnemyFactory();
+      }
+   }
+}
+```
+
+여기서 팩토리 클래스를 생성하는 책임을 별도로 분리할 수 있다면, EnemyFactory는 interface로 변경될 수 있다. 
+

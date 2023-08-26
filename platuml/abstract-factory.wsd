@@ -1,0 +1,43 @@
+@startuml
+
+class Stage { }
+
+abstract class EnemyFactory { 
+    +{static} EnemyFactory getFactory(int level)
+
+    +{abstract} Boss creatgeBoss()
+    +{abstract} SmallFlight createSmallFlight()
+    +{abstract} Obstacle createObstacle()
+}
+
+Stage .right.> EnemyFactory
+
+class EasyStageEnemyFactory extends EnemyFactory {
+    +Boss creatgeBoss()
+    +SmallFlight createSmallFlight()
+    +Obstacle createObstacle()
+}
+
+class HardEnemyFactory extends EnemyFactory {
+    +Boss creatgeBoss()
+    +SmallFlight createSmallFlight()
+    +Obstacle createObstacle()
+}
+
+abstract class Boss { }
+class CloningBoss extends Boss { }
+class StrongAttackBoss extends Boss { }
+
+abstract class SmallFlight { }
+class MissileSmallFlight extends SmallFlight { }
+class DashSmallFlight extends SmallFlight { }
+
+abstract class Obstacle { }
+class BombObstacle extends Obstacle { }
+class RockObstacle extends Obstacle { }
+
+Stage .down.> Boss
+Stage .down.> SmallFlight
+Stage .down.> Obstacle
+
+@enduml
