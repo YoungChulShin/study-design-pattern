@@ -19,6 +19,9 @@
 - 전략(Strategy): DiscountStrategy
 - 전략 콘크리트 클래스(Strategy concrete class): FirstGuestDiscountStrategy, NonFreshItemDiscountStrategy
 
+샘플 코드
+- [link](./sample-code/strategy/src/test/java/study/designpattern/CalculatorTest.java)
+
 # 템플릿 메서드(Template Method) 패턴
 ![template-method-pattern](/images/template-method.svg)
 
