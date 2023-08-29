@@ -92,6 +92,9 @@ VendingMachine 예시
 - 특정 데코레이터가 비정상적으로 동작할 때, 어덯게 처리할 것인지 확인이 필요하다. 
    - 예를 들어서 DB에 커밋되었는데, 메시지 전송이 실패했다면 어떻게 처리할지를 확인해야한다. 
 
+샘플 코드
+- [link](./sample-code/decorator/src/test/java/study/designpattern/FileOutTest.java)
+
 
 # 프록시(Proxy) 패턴
 상황
