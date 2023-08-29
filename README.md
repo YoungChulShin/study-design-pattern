@@ -58,6 +58,9 @@ VendingMachine 예시
 - 새로운 상태가 추가되더라도 콘텍스트 코드가 받는 영향은 최소화된다.
 - 상태에 따른 동작을 구현한 코드가 상태별로 가지기 때문에 상태별 동작을 수정하기가 쉽다.
 
+샘플 코드
+- [link](./sample-code/state/src/main/java/study/designpattern/VendingMachine.java)
+
 ## 상태 변경 주체?
 콘크리트 클래스에서 동작이 일어났을 때, 상태가 변경될 수 있다. 이러한 상태 변경은 콘텍스트, 콘크리트 클래스에 책임을 줄 수 있다. 
 
