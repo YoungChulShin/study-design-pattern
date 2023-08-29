@@ -32,6 +32,9 @@
 - 실행 과정을 구현한 상위 클래스
 - 실행 과정의 일부를 구현한 하위 클래스
 
+샘플 코드
+- [link](./sample-code/TemplateMethod/src/test/java/study/designpattern/auth/AuthenticatorTest.java)
+
 # 상태(State) 패턴
 VendingMachine 예시
 - `동전을 넣는다`, `제품을 선택한다` 라는 동작이 있을 때, 이 동작들은 조건에 따라서 실행 내용과 결과가 달라지게 된다. 
